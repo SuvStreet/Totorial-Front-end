@@ -37,7 +37,7 @@
 }
 ```
 
-Файл обнуление стилей в css [sass]()
+Файл обнуление стилей в css [sass](https://github.com/SuvStreet/Totorial-Front-end/blob/main/%D0%92%D1%91%D1%80%D1%81%D1%82%D0%BA%D0%B0/css/resetStyles.sass)
 
 
 
