@@ -5,6 +5,7 @@
 * Файл обнуление стилей в css [sass](https://github.com/SuvStreet/Totorial-Front-end/blob/main/%D0%92%D1%91%D1%80%D1%81%D1%82%D0%BA%D0%B0/css/resetStyles.sass)
 * Файл работа с текстом [styleFont.md](https://github.com/SuvStreet/Totorial-Front-end/blob/main/%D0%92%D1%91%D1%80%D1%81%D1%82%D0%BA%D0%B0/css/styleFont.md)
 * Файл работа с блоком [styleDiv.md](https://github.com/SuvStreet/Totorial-Front-end/blob/main/%D0%92%D1%91%D1%80%D1%81%D1%82%D0%BA%D0%B0/css/styleDiv.md)
+* Файл работа с background [background.md](https://github.com/SuvStreet/Totorial-Front-end/blob/main/%D0%92%D1%91%D1%80%D1%81%D1%82%D0%BA%D0%B0/css/background.md)
 
 ---
 
