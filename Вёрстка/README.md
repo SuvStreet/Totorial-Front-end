@@ -23,3 +23,5 @@
 
 # Полезные ссылки
   * [formatter](https://jsonformatter.org/)
+  * [Конвертор цветов](https://colorscheme.ru/color-converter.html)
+  * [Инструмент создания градиента](https://www.colorzilla.com/gradient-editor/)
