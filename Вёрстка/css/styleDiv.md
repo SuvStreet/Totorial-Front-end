@@ -1,7 +1,10 @@
-
-[Текст ссылки](#abcd)
-
 # Свойства блоков
+
+ * [padding](#padding)
+
+---
+
+<a name="padding"></a>
 
   * `padding`- Внутренний отступ элемента. Не может быть отрицаптельным.
 ```
@@ -164,9 +167,6 @@ box-shadow: inset 5px 5px 10px 5px #000000
 Отличие `visibility: hidden;` от `opacity:0;` в том что блок скрывается и взаимодействовать с ним нельзя.
 
 ---
-<a name="abcd"></a>
-
-
 
 #### [Свойства блоков. CSS padding. CSS margin. CSS display. Уроки CSS HTML JS. Урок №7](https://www.youtube.com/watch?v=RQqzOTUa9Ig)
 #### [Свойства и стили оформления блоков. CSS opacity. Уроки HTML CSS JS. Урок №8](https://www.youtube.com/watch?v=G4aOu26s4_s)
