@@ -6,6 +6,23 @@
  - [Операторы сравнения](#операторы_сравнения)
  - [Сравнение строк](#сравнение_строк)
  - [Округление](#округление)
+ - [Логические конструкции](#логические_конструкции)
+   - `if`
+   - `if...else`
+   - `else...if`
+   - `switch`
+   - `?:`
+ - [Логические операторы](#логические_операторы)
+   - `&&`
+   - `||`
+   - `!`
+   - `??`
+ - [Циклы](#циклы)
+   - `while`
+   - `do...while`
+   - `for`
+   - `break`
+   - `continue`
 
 ---
 
@@ -111,6 +128,158 @@ console.log(Math.ceil(41.5)) // 42
 console.log(Math.ceil(41.1)) // 42
 console.log(Math.ceil(42)) // 42
 ```
+
+<h2><a name="логические_конструкции">Логические конструкции</h2>
+
+[Условный оператор](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/if...else) (`if`) – если условие выполнится, то сделать какое-либо действие
+
+```js
+if (условие) {
+  // Выполнится, если условие будет истинным
+}
+```
+
+- `if...else` – более расширенная запись предыдущей конструкции.
+
+```js
+if (условие) {
+  // ...
+} else {
+  // Выполнится, если условие будет ложным
+}
+```
+
+- `else if` – дополнительная проверка условия
+
+```js
+if (условие1) {
+  // ...
+} else if (условие2) {
+  // Выполнится, если условие 2 было истинным, и условие 1 были ложным
+} else if (условие3) {
+  // Выполнится, если условие 3 было истинным, и условия 1, 2 были ложными
+} else {
+  // Выполнится, если все условия выше были ложными
+}
+```
+
+- [`switch`](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/switch) - сравнивает выражение со случаями (кейсами), находит тот, значение которого совпадает с выражением, и затем выполняет инструкции нужного случая.
+
+```js
+switch (переменная) {
+  case значение1:
+    // выполнится, если переменная === значение1
+    break // завершение случая
+  case значение2:
+    // выполнится, если переменная === значение2
+    break
+  default:
+    // выполнится, если ни один другой случай не сработал
+    break
+}
+```
+
+- `?:` – [*Терна́рный оператор*](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) компактная замена `if...else`
+
+```js
+условие ? выражение1 : выражение2 // Если условие истинно, то вернется выражение1, а если ложно, то выражение2
+```
+
+<h2><a name="логические_операторы">Логические операторы</h2>
+
+- И (`&&`) – логическое И (`a && b`)
+
+Результатом будет `true`, когда все операнды равны `true`. В остальных случаях результатом будет `false`.
+
+![](https://github.com/SuvStreet/Totorial-Front-end/blob/main/assets/418.png "логическое И")
+
+Если все значения [truthy](https://developer.mozilla.org/ru/docs/Glossary/Truthy) (приводятся к `true`), то возвращает **последнее из них**.
+
+Если хотя бы одно [falsy](https://developer.mozilla.org/ru/docs/Glossary/Falsy) (приведется к `false`), то возвращает **первое из них**.
+
+```js
+// Все truthy
+console.log(1 && 'hello' && true); // true
+console.log(true && 1 && 'javascript'); // 'javascript'
+
+// Содержится falsy
+console.log(false && 0 && 'javascript'); // false
+console.log(1 && '' && false); // ''
+console.log(0 && '' && false); // 0
+```
+
+- ИЛИ (`||`) – логическое ИЛИ (`a || b`)
+
+Результатом будет `true`, когда один или несколько операндов равны `true`. В остальных случаях (только когда все операнды `false`) результатом будет `false`.
+
+![](https://github.com/SuvStreet/Totorial-Front-end/blob/main/assets/55.png "логическое ИЛИ")
+
+Если все значения [falsy](https://developer.mozilla.org/ru/docs/Glossary/Falsy) (приводятся к `false`), то возвращает **последнее из них**.
+
+Если хотя бы одно [truthy](https://developer.mozilla.org/ru/docs/Glossary/Truthy) (приведется к `true`), то возвращает **первое из них**.
+
+```js
+// Все falsy
+console.log('' || 0 || false); // false
+console.log(false || 0 || ''); // ''
+
+// Содержится truthy
+console.log(false || 'hello' || true); // 'hello'
+console.log(1 || false || 'javascript'); // 1
+console.log(true || 1 || 'javascript'); // true
+```
+
+- НЕ (`!`) – логическое отрицание (`!a`)
+
+Превращает `true` в `false` и наоборот.
+
+- Nullish coalescing (`??`) – [оператор нулевого слияния](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing) (`a ?? b`)
+
+Данный оператор очень похож на ИЛИ (`||`), но он считает за “falsy” только `null` и `undefined`. То есть он возвращает правый операнд, если слева был `null` или `undefined`, и возвращает левый, если их там не было. 
+
+```js
+console.log(null ?? '123') // '123'
+console.log(undefined ?? '123') // '123'
+console.log(false ?? '123') // false
+console.log(0 ?? '123') // 0
+console.log(true ?? '123') // true
+```
+
+<h2><a name="циклы">Циклы</h2>
+
+- `while`
+
+```js
+while (условие) {
+  // цикл будет повторяться, пока условие истинно
+}
+```
+
+- `do...while`
+
+```js
+do {
+  // цикл будет повторяться, пока условие истинно
+} while (условие)
+```
+
+- `for`
+
+```js
+for (инициализация; условие; шаг) {
+  // тело цикла
+}
+```
+
+- `break`
+
+Остановка цикла.
+
+- `continue`
+
+Останавливает работу текущей итерации.
+
+
 
 
 
