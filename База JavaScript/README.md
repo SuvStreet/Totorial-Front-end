@@ -13,5 +13,5 @@
 - [Дата и Время в JavaScript](https://github.com/SuvStreet/Totorial-Front-end/blob/main/%D0%91%D0%B0%D0%B7%D0%B0%20JavaScript/%D0%94%D0%B0%D1%82%D0%B0_%D0%B8_%D0%92%D1%80%D0%B5%D0%BC%D1%8F_%D0%B2_JavaScript.md)
 - [Ключевое слово "this"](https://github.com/SuvStreet/Totorial-Front-end/blob/main/%D0%91%D0%B0%D0%B7%D0%B0%20JavaScript/%D0%9A%D0%BB%D1%8E%D1%87%D0%B5%D0%B2%D0%BE%D0%B5_%D1%81%D0%BB%D0%BE%D0%B2%D0%BE_%22this%22.md)
 - [Классы + ООП](https://github.com/SuvStreet/Totorial-Front-end/blob/main/%D0%91%D0%B0%D0%B7%D0%B0%20JavaScript/%D0%9A%D0%BB%D0%B0%D1%81%D1%81%D1%8B_%2B_%D0%9E%D0%9E%D0%9F.md)
-- [Работа_с_DOM](https://github.com/SuvStreet/Totorial-Front-end/blob/main/%D0%91%D0%B0%D0%B7%D0%B0%20JavaScript/%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0_%D1%81_DOM.md)
+- [Работа с DOM](https://github.com/SuvStreet/Totorial-Front-end/blob/main/%D0%91%D0%B0%D0%B7%D0%B0%20JavaScript/%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0_%D1%81_DOM.md)
 
