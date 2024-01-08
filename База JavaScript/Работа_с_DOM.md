@@ -31,7 +31,7 @@
     - `"afterbegin"`
     - `"beforeend"`
     - `"afterend"`
-- [Остальные методы HTML-элементов](#остальные_методы_HTML_элементов)
+- [Остальные методы HTML-элементов](#остальные-методы-HTML-элементов)
   - `remove()`
   - `closest()`
   - `classList`
@@ -236,7 +236,7 @@ Data-атрибуты позволяют хранить дополнительн
   - `"beforeend"` – вставить newElem `в конец` elem,
   - `"afterend"` – вставить newElem непосредственно `после` elem.
 
-<h2><a name='остальные_методы_HTML_элементов'>Остальные методы HTML-элементов</a></h2>
+<h2><a name='остальные-методы-HTML-элементов'>Остальные методы HTML-элементов</a></h2>
 
 - [`remove()`](https://developer.mozilla.org/ru/docs/Web/API/Element/remove) - `удаляет` элемент из DOM-дерева.
 
