@@ -37,9 +37,9 @@
 - [Слияние веток при помощи команды git merge](#слияние_веток_при_помощи_команды_git_merge)
   - `git merge [branch_name]`
 - [Решение конфликтов при слиянии веток](#решение_конфликтов_при_слиянии_веток)
-  - `Accept Current Chenge`
-  - `Accept Incoming Chenge`
-  - `Accept Both Chenges`
+  - `Accept Current Change`
+  - `Accept Incoming Change`
+  - `Accept Both Changes`
 - [Процесс работы с репозиторием по методике GitFlow](#процесс_работы_с_репозиторием_по_методике_gitflow)
 - [Создание SSH-ключа](#создание_ssh_ключа)
   - `ssh-keygen -o`
