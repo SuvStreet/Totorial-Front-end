@@ -30,7 +30,7 @@
 - [Игнорирование файлов (.gitignore)](#игнорирование_файлов_gitignore)
 - [Работа с ветками (создание, удаление)](#работа_с_ветками_создание_удаление)
   - `git branch [name_branch]`
-  - `git -d [name_branch]`
+  - `git branch -d [name_branch]`
   - `git checkout [name_branch]`
 - [Слияние веток при помощи действия pull request](#слияние_веток_при_помощи_действия_pull_request)
   - `git pull [repository_link] [branch_name]`
@@ -147,7 +147,7 @@
 
    - `git branch [name_branch]` - создание новой ветки от ветки на которой мы сейчас находимся (`git branch`). ***[name_branch] заменить на название новой ветки***
 
-   - `git -d [name_branch]` - удаление выбранной ветки. ***[name_branch] заменить на название ветки которую хотим удалить***
+   - `git branch -d [name_branch]` - удаление выбранной ветки. ***[name_branch] заменить на название ветки которую хотим удалить***
 
   - `git checkout [name_branch]` - выбор ветки на которую хотим перейти. ***[name_branch] заменить на название ветки на которую хотим перейти***
 
