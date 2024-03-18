@@ -8,6 +8,7 @@
 - [Инициализация проектов через Git](#инициализация_проектов_через_git)
   - `git init`
   - `git remote add origin [url your repository]`
+  - `git remote rm origin`
   - `git remote -v`
 - [Команда git config](#команда_git_config)
   - `git config`
@@ -92,6 +93,8 @@
   - Создать репозиторий на GitHub.
 
   - `git remote add origin [url_your_repository]` - привязать свой локальный проект к созданному репозиторию на GitHub ***[url your repository] заменить на ссылку своего репозитория***
+
+  - `git remote rm origin` - отвязать локальный проект от репазитория на GitHub
 
   - `git remote -v` - проверить привязку проекта к удалённому репозиторию
 
