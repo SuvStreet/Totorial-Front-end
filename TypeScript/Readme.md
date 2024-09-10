@@ -15,6 +15,14 @@
   - `Перечисления (Enums)`
   - `Символ. BigInt`
   - `void vs indefined`
+- [Работа с типами](#работа_с_типами)
+  - `Объединения (Union Types)`
+  - `Литералы (Literal Types)`
+  - `Интерфейсы`
+  - `unknown`
+  - `never`
+  - `Защитники типа (Type Guard)`
+- [Дженерики](#дженерики)
 
 <h2 name='установка_typescript'>Установка TypeScript</h2>
 
@@ -259,6 +267,152 @@ function logInfo(): void { // указываем что функция ниче�
 // когда мы не определяем значение перемменной
 let temp: undefined
 ```
+
+<h2 name='работа_с_типами'>Работа с типами</h2>
+
+  - `Объединения (Union Types)`
+
+```ts
+function compute(p1: number | string, p2: number | string) {
+    if (typeof p1 === 'number' && typeof p2 === 'number') return p1 + p2
+    else return p1.toString() + p2.toString()
+}
+
+console.log(compute(1, 2))
+console.log(compute('hello', 'world'))
+
+function logError(err: string | string[]) {
+    if (Array.isArray(err)) {
+        console.log(err.reduce((acc, cur) => acc + ' ' + cur, ''))
+    } else {
+        console.log(err)
+    }
+}
+```
+
+  - `Литералы (Literal Types)`
+
+```ts
+// создание кастомного типа
+type OutputType = 'string' | 'json'
+
+function convertData(data: object, outputType: OutputType) {
+    if (outputType === 'string') {
+        return JSON.stringify(data)
+    } else if (outputType === 'json') {
+        return { ...data }
+    }
+}
+
+// convertData({ a: 1 }, 'smth')
+```
+
+  - `Интерфейсы`
+
+```ts
+// type User = {
+//   name: string
+//   age: number
+//   hobbies: string[]
+// }
+
+interface Address {
+    city: string
+    street: string
+}
+
+interface User {
+    name: string
+    age: number
+    hobbies: string[]
+}
+
+interface FullUser extends User, Address {
+    date: Date
+}
+
+const person: FullUser = {
+    name: 'Vladilen',
+    age: 29,
+    hobbies: ['a', 'b', 'c'],
+    city: 'Moscow',
+    street: 'Lenina',
+    date: new Date(),
+}
+
+// ======
+
+interface UserMap {
+    [key: number]: FullUser
+}
+
+
+const userMap = {
+    1: person,
+    2: person
+} as UserMap
+
+// userMap[2].age
+```
+
+  - `unknown`
+
+```ts
+let a: unknown = 30
+let b: boolean = a === 32 // == === || && ? !
+// let c = a + 10 // error
+// let d = a + 10 // if a: any
+if (typeof a === 'number') {
+    let d = a + 10
+}
+```
+
+  - `never`
+
+```ts
+// never returns anything (никогда ничего не возвращает)
+function throwError(message: string): never {
+    throw new Error(message)
+}
+
+function loop(): never {
+    while (true) {}
+}
+```
+
+  - `Защитники типа (Type Guard)`
+
+```ts
+function isBoolean(value: string | boolean): value is boolean {
+    return typeof value === 'boolean'
+}
+
+function logFlag(flag: string | boolean) {
+    if (isBoolean(flag)) {
+        console.log('Hey it is boolean')
+    } else {
+        console.log('Hey it is string')
+    }
+}
+
+logFlag(true)
+logFlag('lol')
+```
+
+<h2 name='дженерики'>Дженерики</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
