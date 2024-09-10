@@ -3,9 +3,12 @@
 - [Установка TypeScript](#установка_typescript)
   - `npm install typescript -g`
   - `tsc`
-- [tsconfig.json.txt](#tsconfig.json.txt)
-  - `npm install typescript --save-dev`
-  - `npx tsc --init`
+  - [tsconfig.json.txt](#tsconfig.json.txt)
+    - `npm install typescript --save-dev`
+    - `npx tsc --init`
+- [Базовые типы](#базовые_типы)
+  - `Число`
+  - `Строки. Логический тип. Базовая типизация функций`
 
 <h2 name='установка_typescript'>Установка TypeScript</h2>
 
@@ -14,7 +17,7 @@
 Проверить что он установился, доступна команда `tsc`:
   - `--help` возможности TS
 
-<h2 name='tsconfig.json.txt'>tsconfig.json.txt</h2>
+<h3 name='tsconfig.json.txt'>tsconfig.json.txt</h3>
 
  - `npm install typescript --save-dev` - установить конфиг для настройки компиляции из TS в JS
 
@@ -69,9 +72,57 @@
 
   - `npx tsc` - по умолчанию ищет файл tsconfig.json в текущем каталоге и использует его для настройки компилятора.
 
+<h2 name='базовые_типы'>Базовые типы</h2>
 
+  - `Число` :
 
+```ts
+  let a: number // перемменную явно указываем тип
+  const b: number // константе явно указываем тип
 
+  // какие значения относятся к number
+  const c = 12
+  const d = Infinity
+  const e = NaN
+  const f = 0x1
+  const j = 0.1
+  const i:24 = 24 // указываем что переменная i будет равна только 24!
+
+  // праметры функции явно указываем тип и явно указываем, что она возвращает
+  function sum(a: number, b: number):number {} 
+```
+
+  - `Строки. Логический тип. Базовая типизация функций`
+
+```ts
+const string = 'Hello TypeScript'
+
+// Указываем что функция принимает строку и булевое значение,
+// и отдаёт так же строку. ? - после параметка указывает, что он не
+// обязателен и может не передоваться.
+
+function transform(str: string, uppercase?: boolean): string {
+    if (uppercase) {
+        return str.toUpperCase()
+    }
+    return str.toLowerCase()
+}
+
+let isUppercase = true
+
+// всё тоже самое только с стрелочной функцией.
+
+const arrowTransform = (str: string, uppercase?: boolean): string => {
+    if (uppercase) {
+        return str.toUpperCase()
+    }
+    return str.toLowerCase()
+}
+
+console.log(transform(string))
+console.log(transform(string, isUppercase))
+
+```
 
 
 
