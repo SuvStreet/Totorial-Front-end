@@ -9,6 +9,12 @@
 - [Базовые типы](#базовые_типы)
   - `Число`
   - `Строки. Логический тип. Базовая типизация функций`
+  - `Объекты`
+  - `Массивы`
+  - `Кортежи (Tuples)`
+  - `Перечисления (Enums)`
+  - `Символ. BigInt`
+  - `void vs indefined`
 
 <h2 name='установка_typescript'>Установка TypeScript</h2>
 
@@ -111,7 +117,6 @@ function transform(str: string, uppercase?: boolean): string {
 let isUppercase = true
 
 // всё тоже самое только с стрелочной функцией.
-
 const arrowTransform = (str: string, uppercase?: boolean): string => {
     if (uppercase) {
         return str.toUpperCase()
@@ -121,8 +126,148 @@ const arrowTransform = (str: string, uppercase?: boolean): string => {
 
 console.log(transform(string))
 console.log(transform(string, isUppercase))
-
 ```
+
+  - `Объекты`
+
+```ts
+// Явно указываем тип каждому полю объекта
+const person: {
+    name: string
+    age: number
+    surname: string
+    address: { city: string, street: string }
+} = {
+    name: 'Vladilen',
+    surname: 'Minin',
+    age: 29,
+    address: {
+        city: 'moscow',
+        street: 'lenina',
+    },
+}
+
+// функция принимает объект только поля name и surname
+function fullname(obj: { name: string; surname: string }): string {
+    return obj.name + ' ' + obj.surname
+}
+
+console.log(fullname(person))
+```
+
+  - `Массивы`
+
+```ts
+// const names: any[] = ['vladilen', 'igor', 'elena', 1] // error
+
+// указываем тип массив строк
+const names: string[] = ['vladilen', 'igor', 'elena']
+names.push('eva')
+// names.push(42) // error
+
+for (let name of names) {
+    console.log(name.toUpperCase())
+}
+
+const lengths = names
+    .filter((n) => n !== 'igor')
+    .map((n) => n.length)
+    .reduce((acc, cur) => (acc += cur), 0)
+
+console.log(lengths)
+```
+
+  - `Кортежи (Tuples)`
+
+Tuples - массивы состоящие из разных типов данных.
+
+```ts
+// const tuple: any[] = [42, 'I am string'] // error
+// [number, string] - это картеж
+// readonly - только для чтения!
+const tuple: readonly [number, string] = [42, 'I am string']
+
+// tuple[0] = 'fsdmkl' // error
+// const temp = tuple[2] // error
+
+// tuple.push('false') // error
+
+const tuple2: [number, string, ...boolean[]] = [
+    42,
+    'I am string',
+    true,
+    true,
+    false,
+]
+```
+
+  - `Перечисления (Enums)`
+
+```ts
+// const ROLES = {
+//   admin: 'admin',
+//   user: 'user',
+// }
+
+enum Roles {
+    admin = 'admin',
+    user = 'user',
+}
+
+const person = {
+    role: Roles.admin,
+}
+
+const person2 = {
+    role: Roles.user,
+}
+
+function check(person, role: Roles) {
+    if (person.role === Roles.admin) {
+        console.log('This is admin')
+    } else {
+        console.log('This is user')
+    }
+}
+
+check(person, Roles.admin)
+check(person2, 'admin') // error
+```
+
+  - `Символ. BigInt`
+
+```ts
+let a: symbol = Symbol('key')
+let b: symbol = Symbol('key2')
+
+a === b // false
+
+// ===
+
+// "target": "ES2020"
+const bignum: bigint = 123n
+const big2 = BigInt(200)
+```
+
+  - `void vs undefined`
+
+```ts
+function logInfo(): void { // указываем что функция ничего не возвращает
+    console.log(1231)
+}
+
+// когда мы не определяем значение перемменной
+let temp: undefined
+```
+
+
+
+
+
+
+
+
+
 
 
 
