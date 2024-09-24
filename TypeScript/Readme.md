@@ -401,29 +401,98 @@ logFlag('lol')
 
 <h2 name='дженерики'>Дженерики</h2>
 
+Дженерики, или **Generic Types**, — обобщенные типы.
 
+```ts
+const arr: Array<number | string> = [1, 2, 3, 4, 'typeScript']
 
+const promise = new Promise<string>((resolve) => {
+    resolve('promise working!')
+})
+```
 
+ - `Функции`
 
+```ts
+function double<T>(array: T[]): T[] {  // тип в дженериках принято указывать буквой <T>
+    return array.concat(array)
+}
 
+function fill<V>(array: any[], value: V): V[] { // но можно и называть по своему
+    return array.fill(value)
+}
 
+const res1 = double([1, 2, 3, 4, 5])
+const res2 = double(['a', 'b', 'c', 'd'])
 
+const res3 = fill([], 1) // ошибки не будет, дженерик подстроется по тип number
+const res4 = fill([], '3') // тип string
+const res5 = fill([], false) // тип Boolean
 
+// function merge(a: object, b: object): object {
+//   return Object.assign(a, b)
+// }
 
+function merge<T, R>(a: T, b: R): T & R {  // на выходе оператор "&" находит общие свойства
+    return Object.assign({}, a, b)
+}
 
+const res6 = merge({ a: 1 }, { b: 2, c: 2, d: { f: 3 } })
+res6.a
+```
 
+ - `Ограничения дженериков`
 
+```ts
+function log<T extends string | number, R>(data: T): T {
+    console.log(data)
+    return data
+}
 
+const res1 = <string>log('a') // <string> явно указываем что работаем со строкой, а не литералом
+                              // "a"
+let res2 = log(1) as number
 
+// =====
+// let res3 = log(false) // error
+```
 
+ - `Оператор keyof`
 
+```ts
+function getObjectValue<T extends object, R extends keyof T>(obj: T, key: R) {
+    return obj[key]
+}
 
+// R extends keyof T - тип R наследуется keyof от ключей которые находятся только в типе T
 
+const res1 = getObjectValue({ a: 1, b: 2, c: 's' }, 'c')
+```
 
+- `Классы`
 
+```ts
+class Collection<T extends number | string> {
+    constructor(private _items: T[]) {}
 
+    add(value: T): void {
+        this._items.push(value)
+    }
 
+    get items(): T[] {
+        return this._items
+    }
+}
 
+const res1 = new Collection<number>([1, 2, 3])
+res1.add(4)
 
+const res2 = new Collection<string>(['2'])
+res2.add('4')
 
-
+class List<R> extends Collection<number> {
+    constructor(public type: R) {
+        super([])
+    }
+}
+```
